@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+// Route::get('/index', function() {
+//     return view('videos.index');
+//  })->name('index');
+
+route::get('/videos',[VideoController::class, 'index'])->name('video.index');
