@@ -1,14 +1,14 @@
-@extends('layouts.app')
 
-@section('content')
 
 <main class="bg-light">
     <div class="container">
        <div class="row">
-          @foreach ($video as $videos)
+          @foreach ($videos as $video)
             <div class="col-4">
-                <img src="{{ $Video->thumb }}" alt="">
-                <h3>{{ $Video->title }}</h3>
+               <a href="{{ route('video.show', ['video' => $video->id])}}"></a>
+                <img src="{{ $video->thumb }}" alt="">
+                <h3>{{ $video->title }}</h3>
+
             </div>
               
           @endforeach
@@ -20,5 +20,3 @@
     </div>
 </main>
     
-
-@endsection
