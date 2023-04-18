@@ -26,4 +26,21 @@ class VideoController extends Controller
        return view('videos.create');
     }
    
+    public function store(Request $request)
+    {
+        $data = $request->all();
+
+        $newVideo = new video(); 
+        
+        $newVideo->title = $data['title'];
+        $newVideo->type = $data['type'];
+        $newVideo->price = $data['price'];
+        $newVideo->thumb = $data['thumb'];
+        $newVideo->description = $data['description'];
+    
+        $newVideo->save();
+
+        return redirect()->route('video.show', $newVideo);
+    }
+
 }

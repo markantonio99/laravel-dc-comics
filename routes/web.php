@@ -25,4 +25,4 @@ Route::get('/', function () {
 route::get('/videos',[VideoController::class, 'index'])->name('video.index');
 Route::get('/videos/create', [VideoController::class,'create'])->name('video.create');
 Route::get('/videos/{video}', [VideoController::class,'show'])->name('video.show');
-
+Route::post('/videos', [VideoController::class, 'store'])->name('video.store');
