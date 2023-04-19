@@ -43,4 +43,24 @@ class VideoController extends Controller
         return redirect()->route('video.show', $newVideo);
     }
 
+    public function edit(video $video)
+    {
+        return view('videos.edit', compact('video'));
+    }
+
+    public function update(Request $request, video $video)
+    {
+         $data = $request->all();
+
+         $video->title = $data['title'];
+         $video->type = $data['type'];
+         $video->price = $data['price'];
+         $video->thumb = $data['thumb'];
+         $video->description = $data['description'];
+
+         $video->save();
+
+         return to_route('video.show', $video);
+    }
+
 }

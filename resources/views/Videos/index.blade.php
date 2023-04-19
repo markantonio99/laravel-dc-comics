@@ -29,7 +29,7 @@
                 <h3>{{ $video->title }}</h3>
               </td>
               <td>
-               
+               <a class="btn btn-secondary" href="{{ route('video.edit', $video) }}">Modifica</a>
               </td>
             </tr>
             <div class="col-4">
