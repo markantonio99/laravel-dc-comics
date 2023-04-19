@@ -28,7 +28,15 @@ class VideoController extends Controller
    
     public function store(Request $request)
     {
-        $data = $request->all();
+    $data = $request->validate([
+        'title' =>'required|max:255|min:3',
+        'type' =>'required|max:255',
+        'price' =>'required|max:255',
+        'thumb' =>'required|max:255|url',
+        'description' =>'nullable|string',
+    ]);
+
+        // $data = $request->all();
 
         $newVideo = new video(); 
         
@@ -50,7 +58,17 @@ class VideoController extends Controller
 
     public function update(Request $request, video $video)
     {
-         $data = $request->all();
+        $data = $request->validate([
+            'title' =>'required|max:255|min:3',
+            'type' =>'required|max:255',
+            'price' =>'required|max:255',
+            'thumb' =>'required|max:255|url',
+            'description' =>'nullable|string',
+        ]);
+
+
+
+        //  $data = $request->all();
 
          $video->title = $data['title'];
          $video->type = $data['type'];
